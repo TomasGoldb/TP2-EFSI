@@ -11,6 +11,16 @@ const formatearHora=(fecha)=>{
                       fecha.getHours().toString().padStart(2, '0') + ':' +
                       fecha.getMinutes().toString().padStart(2, '0');
 }
+const formatearSegundos = (diferencia) => {
+    // Convertir la diferencia en milisegundos a segundos, minutos y horas
+    let horas = Math.floor(diferencia / 3600000); // 1 hora = 3600000 ms
+    let minutos = Math.floor((diferencia % 3600000) / 60000); // 1 minuto = 60000 ms
+    let segundos = Math.floor((diferencia % 60000) / 1000); // 1 segundo = 1000 ms
+
+    return horas.toString().padStart(2, '0') + ':' +
+           minutos.toString().padStart(2, '0') + ':' +
+           segundos.toString().padStart(2, '0');
+}
 
 
 
@@ -76,7 +86,8 @@ checkboxes.forEach(checkbox => {
             lista[id].marcadoListado = false;
             lista[id].tachado = false;
         }
-        if(esLaTareaMasRapida(lista[id]) || !lista.includes(tareaMasRapida)){
+        if(esLaTareaMasRapida(lista[id]) || !lista.some(tarea => tarea.texto==tareaMasRapida.texto&&tarea.creado==tareaMasRapida.creado)){
+            console.log(esLaTareaMasRapida(lista[id]), !lista.includes(tareaMasRapida));
             tareaMasRapida=lista[id];
         }
         console.log(tareaMasRapida);
@@ -113,3 +124,10 @@ const esLaTareaMasRapida=(tarea)=> {
         return true
     }
 };
+
+const mostrarTareaMasRapida=()=>{
+    let display=document.getElementById("displayTareaMasRapida");
+    let tiempo=formatearSegundos(tareaMasRapida.tachado-tareaMasRapida.creado);
+    
+    display.innerText=`La tarea más rapida fue "${tareaMasRapida.texto}, en ${tiempo}"`;
+}
