@@ -118,9 +118,11 @@ btnAgregar.addEventListener('click',()=>{
 
 
 const esLaTareaMasRapida=(tarea)=> {
-    if(tareaMasRapida!={}){
+    if(Object.keys(tareaMasRapida).length !== 0){
+        console.log("a");
         return tarea.tachado - tarea.creado>tareaMasRapida.tachado-tareaMasRapida.creado;
     }else{
+        console.log("aa");
         return true
     }
 };
