@@ -4,7 +4,6 @@
 *{
     margin: 0px;
     padding: 0px;
-    border: 1px solid black;
 }
 
 
@@ -16,6 +15,7 @@
 }
 .tachado{
     text-decoration: line-through;
+    opacity: 0.6;
 }
 
 
@@ -52,6 +52,7 @@ body{
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 1%;
 }
 .section-checklist .todo-div input[type="text"]{
     width: 93%;
@@ -75,7 +76,12 @@ body{
 .texto-todo{
     width: 100%;
 }
-
+.ul-lista{
+    margin-top: 4%;
+}
+#pError{
+    margin-top: 1%;
+}
 .ul-lista li{
     display: flex;
     justify-content: center;
@@ -84,6 +90,7 @@ body{
     padding: 1%;
     border-radius: 10px;
     margin-bottom: 1%;
+    border: 1px solid rgb(0, 22, 150);
     transition: box-shadow 0.1s ease-in;
 }
 .ul-lista li:hover{
@@ -109,4 +116,14 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.boton-tarea-mas-rapida{
+    font-size: 1lh !important;
+    width: 40% !important;
+    margin-top: 4%;
+}
+#displayTareaMasRapida{
+    margin-top: 3%;
+    
 }

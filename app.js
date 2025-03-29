@@ -87,10 +87,8 @@ checkboxes.forEach(checkbox => {
             lista[id].tachado = false;
         }
         if(esLaTareaMasRapida(lista[id]) || !lista.some(tarea => tarea.texto==tareaMasRapida.texto&&tarea.creado==tareaMasRapida.creado)){
-            console.log(esLaTareaMasRapida(lista[id]), !lista.includes(tareaMasRapida));
             tareaMasRapida=lista[id];
         }
-        console.log(tareaMasRapida);
 
         linea.className = lista[id].tachado ? 'tachado' : '';
     });
@@ -106,8 +104,11 @@ lista[id].tachado = Date.now();
 
 btnAgregar.addEventListener('click',()=>{
     input=document.getElementById("inputt");
+    pError.innerText='';
+    pError.className="";
     if(input.value!=""){
     agregarElemento();
+    input.value="";
     mostrarTareas();
     } else{
         mostrarError('No puedes agregar una tarea vacía.');
@@ -119,17 +120,18 @@ btnAgregar.addEventListener('click',()=>{
 
 const esLaTareaMasRapida=(tarea)=> {
     if(Object.keys(tareaMasRapida).length !== 0){
-        console.log("a");
-        return tarea.tachado - tarea.creado>tareaMasRapida.tachado-tareaMasRapida.creado;
+        return (tarea.tachado - tarea.creado)<(tareaMasRapida.tachado-tareaMasRapida.creado);
     }else{
-        console.log("aa");
         return true
     }
 };
 
 const mostrarTareaMasRapida=()=>{
     let display=document.getElementById("displayTareaMasRapida");
+    if(Object.keys(tareaMasRapida).length !== 0){
     let tiempo=formatearSegundos(tareaMasRapida.tachado-tareaMasRapida.creado);
-    
     display.innerText=`La tarea más rapida fue "${tareaMasRapida.texto}, en ${tiempo}"`;
+    } else{
+        display.innerText="No hay ninguna tarea tachada";
+    }
 }
