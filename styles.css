@@ -1,129 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;600&display=swap');
 
-
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
-
-.error{
-    padding: 1%;
-    background-color: rgb(224, 106, 85);
-    border-radius: 10px;
-    border: 1px solid red
-}
-.tachado{
-    text-decoration: line-through;
-    opacity: 0.6;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-body{
-    font-family: "Public Sans", sans-serif;
-    height: 99vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.section-checklist{
-    width: 80%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 7px solid rgb(0, 22, 150);
-    background-color: rgb(230, 233, 255);
-}
-.section-checklist .todo-div{
-    width: 80%;
-    height: 100%;
-}
-.section-checklist .todo-div h1{
-    text-align: center;
-    font-size: 2lh;
-    margin-top: 4%;
-}
-.section-checklist .todo-div .linea-input{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 1%;
-}
-.section-checklist .todo-div input[type="text"]{
-    width: 93%;
-    padding: 1%;
-}
-.section-checklist .todo-div button{
-    background-color: rgb(0, 22, 150);
-    border: 0px;
-    color: white;
-    width: 4%;
-    height: 5%;
-    border-radius: 9999px;
-    font-size: 2lh;
-}
-.section-checklist .ul-lista{
-    list-style: none;
-}
-.checkbox{
-    width: 5%;
-}
-.texto-todo{
-    width: 100%;
-}
-.ul-lista{
-    margin-top: 4%;
-}
-#pError{
-    margin-top: 1%;
-}
-.ul-lista li{
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    background-color: white;
-    padding: 1%;
-    border-radius: 10px;
-    margin-bottom: 1%;
-    border: 1px solid rgb(0, 22, 150);
-    transition: box-shadow 0.1s ease-in;
-}
-.ul-lista li:hover{
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); 
+body {
+  font-family: 'Public Sans', sans-serif;
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.ul-lista li .div-adentro{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 2%;
+.section-checklist {
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px 40px;
 }
-.ul-lista li .hora {
-    opacity: 0;
-    transition: opacity 0.05s ease-in;
+
+.todo-div h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #001d6e;
+}
+
+.linea-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #cdd9ed;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #001d6e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0039cb;
+}
+
+#error, #pError {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.ul-lista {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.ul-lista li {
+  background-color: #f3f7ff;
+  border: 1px solid #b0c4ff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in;
+}
+
+.ul-lista li:hover {
+  transform: scale(1.01);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tachado {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.hora {
+  font-size: 12px;
+  color: gray;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
 }
 
 .ul-lista li:hover .hora {
-    opacity: 1;
-}
-.punto{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  opacity: 1;
 }
 
-.boton-tarea-mas-rapida{
-    font-size: 1lh !important;
-    width: 40% !important;
-    margin-top: 4%;
+.boton-tarea-mas-rapida {
+  background-color: #0066ff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
 }
-#displayTareaMasRapida{
-    margin-top: 3%;
-    
+
+.boton-tarea-mas-rapida:hover {
+  background-color: #004acc;
+}
+
+#displayTareaMasRapida {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #003399;
+}
+
+.error {
+  background-color: rgb(255, 205, 205);
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 8px;
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
 }

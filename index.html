@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP2 EFSI</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP2 EFSI - To Do List</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-   
-    <section class="section-checklist">
-        <div class="todo-div">
-            <h1>To do list</h1>
-            <div class="linea-input"><input type="text" id="inputt" autocomplete="off"> <button id="btnAgregar">+</button></div>
-            <p id="pError"></p>
-            <ul class="ul-lista" id="ulLista">
-
-
-            </ul>
-            <button class="boton-tarea-mas-rapida" onclick="mostrarTareaMasRapida()">Tarea más rápida</button>
-            <p id="displayTareaMasRapida"></p>
-        </div>
-    </section>
-
-
-    <script src="app.js"></script>
+  <section class="section-checklist">
+    <div class="todo-div">
+      <h1>To Do List</h1>
+      <div class="linea-input">
+        <input type="text" id="inputt" placeholder="Agregar nueva tarea..." autocomplete="off">
+        <button id="btnAgregar">+</button>
+      </div>
+      <p id="pError"></p>
+      <ul class="ul-lista" id="ulLista"></ul>
+      <button class="boton-tarea-mas-rapida" onclick="mostrarTareaMasRapida()">Mostrar tarea más rápida</button>
+      <p id="displayTareaMasRapida"></p>
+    </div>
+  </section>
+  <script src="app.js"></script>
 </body>
 </html>
